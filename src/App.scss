@@ -54,3 +54,19 @@ $bg-color: rgb(16, 16, 16);
         }
     }
 }
+@media (max-width: 480px) {
+    .header {
+        // flex-wrap: wrap;
+        > img {
+            height: 70%;
+        }
+
+        .navBarItems{
+            gap: 0.8rem;
+
+            > a {
+                font-size: 0.8rem;
+            }
+        }
+    }
+}
