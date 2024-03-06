@@ -2,42 +2,48 @@ $bg-color: rgb(16, 16, 16);
 
 .banner{
     width: 100%;
-    height: 400px;
+    height: 90vh;
     background-color: black;
     background-repeat: no-repeat;
     background-size: cover;
+    object-fit: cover;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     
 
-    &::after{
+    &::after {
         content: "";
-        height: 100%;
-        width: 100%;
-        
-        background: $bg-color;
         position: absolute;
-        opacity: 0.4;
+        top: 60%; 
+        left: 0;
+        width: 100%;
+        height: 40%; 
+        background: linear-gradient(to bottom, transparent, rgba(11, 11, 11, 1)); 
+        z-index: 1;
     }
+    
+    
 
     > h1 {
-        margin-left: 1rem;
+        margin-left: 2rem;
         color: white;
-        font-size: 3.5rem;
+        font-size: 3rem;
         width: 50%;
         z-index: 10;
         text-transform: uppercase;
     }
 
     > p {
-        margin: 1rem 1rem;
+        margin: 1rem 2rem;
         width: 50%;
         z-index: 10;
-        font-size: 1.2rem;
-        letter-spacing: 1px;
-        word-spacing: 2px;
+        font-size: 1rem;
+        // letter-spacing: px;
+        word-spacing: 0.5px;
+        justify-content: center;
+        align-items: center;
         color: white;
         font-weight: 300;
     }
@@ -53,31 +59,39 @@ $bg-color: rgb(16, 16, 16);
         justify-content: center;
         align-items: center;
         gap: 10px;
+        font-size: 0.9rem;
+        font-weight: 500;
+
 
         &:hover{
-            opacity: 0.7;
-            transition-duration: 1s;
+            background-color: red;
+            color: white;
+            transition-duration: 0.5s;
         }
     }
 
     .info {
         background-color: black;
-        opacity: 0.5;
+        // opacity: 0.5;
         color: white;
         display: flex;
         justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 500;
+        opacity: 0.9;
+        text-align: center;
         align-items: center;
-        gap: 10px;
+        gap: 8px;
 
         &:hover{
-            opacity: 1;
-            transition-duration: 1s;
+            opacity: 0.8;
+            transition-duration: 0.5s;
         }
     }
 
     button {
         padding: 0.9rem;
-        width: 150px;
+        width: 200px;
         color: black;
         outline: none;
         border: none;
@@ -87,7 +101,7 @@ $bg-color: rgb(16, 16, 16);
         margin: 1rem;
 
         svg {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
         }
     }
 }
@@ -96,11 +110,13 @@ $bg-color: rgb(16, 16, 16);
 
 .row {
     color: white;
-    background-color: black;
+    background-color: #0b0b0b;
     padding: 1rem;
 
     > h2 {
+        margin-left: 6px;
         font-weight: 400;
+        font-size: 1.2rem;
     }
     > div {
         display: flex;
@@ -110,7 +126,8 @@ $bg-color: rgb(16, 16, 16);
 
 .card {
     width: 160px;
-    margin: 0.5rem;
+    margin: 0.3rem;
+    border-radius: 5px;
     cursor: pointer;
     transition: transform 0.5s;
 
@@ -134,7 +151,7 @@ $bg-color: rgb(16, 16, 16);
         }
 
         button {
-            width: 125px;
+            width: 140px;
             padding: 0.5rem;
         }
     }
@@ -146,20 +163,60 @@ $bg-color: rgb(16, 16, 16);
 
 // for mobile view
 @media only screen and (max-width: 480px) {
+
+    .home {
+        background-color: rgb(11,11,11);
+        padding-top: 10px;
+    }
     .banner {
+        width: 90%;
+        height: 80vh;
+        margin: 0px 18px;
+        background-color: rgb(11,11,11);
+        border-radius: 40px;
+        box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 50%; 
+                background: linear-gradient(to bottom, rgba(11, 11, 11, 0.5), transparent); 
+                z-index: 1;
+                
+            }
+        
+
+        &::after {
+            border-radius: 40px;
+        }
         > h1 {
-            margin-top: 3rem;
-            font-size: 2rem;
+            width: auto;
+            margin-top: 2rem;
+            font-size: 1.5rem;
         }
 
         > p {
-            width: 70%;
-            font-size: 0.8rem;
+            width: auto;
+            font-size: 0.6rem;
+            letter-spacing: 0.2px;
         }
 
-        button {
-            width: 100px;
+        button {    
+            margin-left: 0px;
+            width: 130px;
             padding: 0.6rem;
+            font-size: 0.8rem;
+        }
+    }
+
+    .row {
+        > h2 {
+            font-size: 1rem;
+            font-weight: 300;
+            margin-bottom: 5px;
         }
     }
 }

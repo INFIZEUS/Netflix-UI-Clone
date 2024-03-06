@@ -2,10 +2,11 @@ import React, { useEffect, useState } from 'react'
 import "./Home.scss"
 import axios from 'axios';
 import { FaPlay } from "react-icons/fa";
-import { LiaInfoCircleSolid } from "react-icons/lia";
+import { LuPlus } from "react-icons/lu";
 
 import { BiPlay } from "react-icons/bi";
 import { AiOutlinePlus } from "react-icons/ai"
+import netflix from './netflix-logo.png'
 
 
 const apiKey = "1c5e078851ec4228cb4b57ecd95ddcd2";
@@ -77,18 +78,22 @@ const Home = () => {
     fetchTopRated();
   }, [])
 
+  const isMobile = window.innerWidth < 480;
+
   return (
+
+    
     <section className='home'>
       <div className="banner" style={{
-        backgroundImage: popularMovies[0] ? `url(${imgUrl}/${upcomingMovies[2].poster_path})`: "rgb(16,16,16)",
+        backgroundImage: popularMovies[0] ? `url(${imgUrl}/${isMobile ? upcomingMovies[1].poster_path : upcomingMovies[1].backdrop_path})`: "rgb(16,16,16)",
       }}>
 
-        {upcomingMovies[2] && <h1>{upcomingMovies[2].original_title}</h1>}
-        {upcomingMovies[2] && <p>{upcomingMovies[2].overview}</p>}
+        {upcomingMovies[1] && <h1>{upcomingMovies[1].original_title}</h1>}
+        {upcomingMovies[1] && <p>{upcomingMovies[1].overview}</p>}
 
         <div className="btns">
           <button className='play'><FaPlay /> Play</button>
-          <button className='info'><LiaInfoCircleSolid /> More info </button>
+          <button className='info'><LuPlus /> My List </button>
         </div>
         
       </div>
